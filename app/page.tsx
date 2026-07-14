@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import LocationCard from "@/components/cards/LocationCard";
 import BriefCard from "@/components/cards/BriefCard";
+import Feed from "@/components/feed/Feed";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Header />
       <LocationCard />
       <BriefCard />
+      <Feed />
     </main>
   );
 }
