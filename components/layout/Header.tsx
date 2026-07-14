@@ -1,79 +1,68 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Bell, CalendarDays, Clock3, Sun, Leaf } from "lucide-react";
+import GlassCard from "@/components/ui/GlassCard";
+import { Bell } from "lucide-react";
+import DateTime from "./DateTime";
 
 export default function Header() {
-  const [now, setNow] = useState(new Date());
+  const hour = new Date().getHours();
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setNow(new Date());
-    }, 1000);
+  let greeting = "Good Morning ☀️";
 
-    return () => clearInterval(timer);
-  }, []);
-
-  const time = now.toLocaleTimeString("th-TH", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  const date = now.toLocaleDateString("th-TH", {
-    weekday: "long",
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+  if (hour >= 12 && hour < 17) {
+    greeting = "Good Afternoon 🌤️";
+  } else if (hour >= 17 && hour < 20) {
+    greeting = "Good Evening 🌇";
+  } else if (hour >= 20 || hour < 5) {
+    greeting = "Good Night 🌙";
+  }
 
   return (
-    <header className="px-6 pt-8">
-      {/* Notification */}
-      <div className="flex justify-end">
-        <button className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-white/70 shadow-lg backdrop-blur-xl transition hover:scale-105">
-          <Bell size={20} />
-        </button>
-      </div>
+    <header className="px-6 pt-6">
 
-      {/* Logo */}
-      <div className="mt-4 text-center">
-        <h1 className="text-5xl font-black tracking-tight">
-          วันนี้
-        </h1>
+      {/* Header Card */}
+      <GlassCard className="px-6 py-5">
 
-        <p className="mt-2 text-slate-500">
-          รู้ก่อน...ออกจากบ้าน
-        </p>
-      </div>
+        <div className="flex items-center justify-between">
 
-      {/* Dynamic Capsule */}
-      <div className="mt-8 flex justify-center">
-        <div className="w-full max-w-xs rounded-[32px] border border-white/40 bg-white/70 p-5 shadow-xl backdrop-blur-2xl">
+          <div>
 
-          <div className="flex items-center gap-3">
-            <Clock3 className="text-indigo-500" size={18} />
-            <span className="text-sm font-semibold">{time}</span>
+            <p className="text-xs uppercase tracking-[0.25em] text-soft">
+              TODAY
+            </p>
+
+            <h1 className="mt-1 text-4xl font-black">
+              {greeting}
+            </h1>
+
           </div>
 
-          <div className="mt-3 flex items-center gap-3">
-            <CalendarDays className="text-blue-500" size={18} />
-            <span className="text-sm">{date}</span>
-          </div>
-
-          <div className="my-4 h-px bg-slate-200" />
-
-          <div className="flex items-center gap-3">
-            <Sun className="text-yellow-500" size={18} />
-            <span className="text-sm">32°C</span>
-          </div>
-
-          <div className="mt-3 flex items-center gap-3">
-            <Leaf className="text-green-500" size={18} />
-            <span className="text-sm">AQI 42 ดี</span>
-          </div>
+          <button
+            className="
+              flex
+              h-12
+              w-12
+              items-center
+              justify-center
+              rounded-full
+              bg-white/10
+              backdrop-blur-xl
+              transition
+              hover:scale-105
+            "
+          >
+            <Bell size={20} />
+          </button>
 
         </div>
+
+      </GlassCard>
+
+      {/* Clock Card */}
+      <div className="mt-4">
+        <DateTime />
       </div>
+
     </header>
   );
 }

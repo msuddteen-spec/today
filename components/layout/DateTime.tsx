@@ -1,16 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import GlassCard from "@/components/ui/GlassCard";
 
 export default function DateTime() {
   const [now, setNow] = useState(new Date());
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setNow(new Date());
-    }, 1000);
-
-    return () => clearInterval(timer);
+    const t = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(t);
   }, []);
 
   const time = now.toLocaleTimeString("th-TH", {
@@ -22,13 +20,19 @@ export default function DateTime() {
     weekday: "long",
     day: "numeric",
     month: "long",
-    year: "numeric",
   });
 
   return (
-    <div>
-      <p className="text-4xl font-bold">{time}</p>
-      <p className="mt-1 text-sm text-slate-500">{date}</p>
-    </div>
+    <GlassCard className="rounded-[36px] p-6 text-center">
+
+      <p className="text-sm text-soft">
+        {date}
+      </p>
+
+      <h2 className="mt-3 text-7xl font-black">
+        {time}
+      </h2>
+
+    </GlassCard>
   );
 }

@@ -1,130 +1,817 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
-}
+/* ============================= */
+/* Theme                         */
+/* ============================= */
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #ffffff;
+  --foreground: #0f172a;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+html,
+body {
+  width: 100%;
+  min-height: 100%;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+body {
+  @apply text-slate-900 antialiased;
+  background: transparent;
+  overflow-x: hidden;
+}
+
+/* ============================= */
+/* Base                          */
+/* ============================= */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* Glass                         */
+/* ============================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+}
+
+.card-shadow {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card-shadow-hover:hover {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================= */
+/* Scrollbar                     */
+/* ============================= */
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+/* ============================= */
+/* Hero Float                    */
+/* ============================= */
+
+@keyframes heroFloat {
+  0% {
+    transform: translateY(0);
   }
-  body {
-    @apply bg-background text-foreground;
+
+  50% {
+    transform: translateY(-6px);
   }
-  html {
-    @apply font-sans;
+
+  100% {
+    transform: translateY(0);
   }
+}
+
+.hero-float {
+  animation: heroFloat 7s ease-in-out infinite;
+}
+
+/* ============================= */
+/* Cloud Float                   */
+/* ============================= */
+
+@keyframes cloudFloat {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.cloud-float {
+  animation: cloudFloat 6s ease-in-out infinite;
+}
+
+/* ============================= */
+/* Fade Up                       */
+/* ============================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.8s ease;
+}
+
+/* ============================= */
+/* Rain                          */
+/* ============================= */
+
+@keyframes rainDrop {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: .8;
+  }
+
+  100% {
+    transform: translateY(28px);
+    opacity: 0;
+  }
+}
+
+.rain-drop {
+  position: absolute;
+  width: 2px;
+  height: 18px;
+  border-radius: 999px;
+  background: #60a5fa;
+  animation: rainDrop 1.2s linear infinite;
+}
+
+.rain-drop:nth-child(2) {
+  left: 20px;
+  animation-delay: .2s;
+}
+
+.rain-drop:nth-child(3) {
+  left: 40px;
+  animation-delay: .5s;
+}
+
+.rain-drop:nth-child(4) {
+  left: 60px;
+  animation-delay: .8s;
+}
+
+/* ============================= */
+/* Sun Glow                      */
+/* ============================= */
+
+@keyframes sunGlow {
+  0% {
+    opacity: .55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: .55;
+    transform: scale(1);
+  }
+}
+
+.sun-glow {
+  animation: sunGlow 4s ease-in-out infinite;
+}
+
+/* ============================= */
+/* Lightning                     */
+/* ============================= */
+
+@keyframes lightning {
+  0%,
+  95%,
+  100% {
+    opacity: 0;
+  }
+
+  96% {
+    opacity: .8;
+  }
+
+  97% {
+    opacity: 0;
+  }
+
+  98% {
+    opacity: 1;
+  }
+}
+
+.lightning {
+  animation: lightning 6s infinite;
+}
+/* ==========================================================
+   TODAY APP THEME VARIABLES
+========================================================== */
+
+:root {
+  --glass-day: rgba(255,255,255,.45);
+  --glass-night: rgba(16,28,56,.55);
+
+  --border-day: rgba(255,255,255,.40);
+  --border-night: rgba(255,255,255,.10);
+
+  --shadow-day:
+    0 10px 30px rgba(92,148,255,.12);
+
+  --shadow-night:
+    0 12px 36px rgba(0,0,0,.45);
+
+  --text-day: #0f172a;
+  --text-day-soft: #64748b;
+
+  --text-night: #f8fafc;
+  --text-night-soft: #cbd5e1;
+
+  --primary-blue: #38bdf8;
+  --primary-yellow: #facc15;
+}
+
+
+/* ==========================================================
+   GLASS CARD
+========================================================== */
+
+.glass-card{
+
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+
+  border-radius:28px;
+
+  transition:
+    background .35s,
+    border .35s,
+    box-shadow .35s,
+    color .35s;
+
+}
+
+
+/* ---------- DAY ---------- */
+
+.theme-day .glass-card{
+
+  background:var(--glass-day);
+
+  border:1px solid var(--border-day);
+
+  box-shadow:var(--shadow-day);
+
+}
+
+
+/* ---------- NIGHT ---------- */
+
+.theme-night .glass-card{
+
+  background:var(--glass-night);
+
+  border:1px solid var(--border-night);
+
+  box-shadow:var(--shadow-night);
+
+}
+
+
+/* ==========================================================
+   TEXT COLOR
+========================================================== */
+
+.theme-day{
+
+  color:var(--text-day);
+
+}
+
+.theme-day .text-soft{
+
+  color:var(--text-day-soft);
+
+}
+
+
+.theme-night{
+
+  color:var(--text-night);
+
+}
+
+.theme-night .text-soft{
+
+  color:var(--text-night-soft);
+
+}
+
+
+/* ==========================================================
+   HERO GLOW
+========================================================== */
+
+.hero-glow{
+
+  position:absolute;
+
+  inset:-80px;
+
+  border-radius:999px;
+
+  filter:blur(70px);
+
+  opacity:.35;
+
+  pointer-events:none;
+
+}
+
+
+.theme-day .hero-glow{
+
+  background:#fde68a;
+
+}
+
+
+.theme-night .hero-glow{
+
+  background:#60a5fa;
+
+}
+/* ==========================================================
+   TODAY APP SKY THEMES
+========================================================== */
+
+/* ---------- MORNING ---------- */
+
+.theme-morning{
+
+  background:
+  linear-gradient(
+    180deg,
+    #FFE7AE 0%,
+    #B9E8FF 35%,
+    #EAF8FF 100%
+  );
+
+}
+
+
+/* ---------- DAY ---------- */
+
+.theme-day{
+
+  background:
+  linear-gradient(
+    180deg,
+    #69C8FF 0%,
+    #AEE6FF 45%,
+    #EAF8FF 100%
+  );
+
+}
+
+
+/* ---------- SUNSET ---------- */
+
+.theme-sunset{
+
+  background:
+  linear-gradient(
+    180deg,
+    #FF9D7A 0%,
+    #FFBC9A 25%,
+    #C58BFF 75%,
+    #5B5FAE 100%
+  );
+
+}
+
+
+/* ---------- NIGHT ---------- */
+
+.theme-night{
+
+  background:
+  linear-gradient(
+    180deg,
+    #07111F 0%,
+    #0F2346 55%,
+    #183B70 100%
+  );
+
+}
+
+
+/* ==========================================================
+   STARS
+========================================================== */
+
+@keyframes starTwinkle{
+
+  0%{
+    opacity:.25;
+    transform:scale(.9);
+  }
+
+  50%{
+    opacity:1;
+    transform:scale(1.15);
+  }
+
+  100%{
+    opacity:.25;
+    transform:scale(.9);
+  }
+
+}
+
+.star{
+
+  position:absolute;
+
+  width:3px;
+  height:3px;
+
+  border-radius:999px;
+
+  background:white;
+
+  animation:starTwinkle 4s ease-in-out infinite;
+
+}
+
+.star:nth-child(2){
+
+  left:18%;
+  top:14%;
+
+  animation-delay:.5s;
+
+}
+
+.star:nth-child(3){
+
+  left:38%;
+  top:9%;
+
+  animation-delay:1.3s;
+
+}
+
+.star:nth-child(4){
+
+  left:61%;
+  top:16%;
+
+  animation-delay:2.2s;
+
+}
+
+.star:nth-child(5){
+
+  left:82%;
+  top:10%;
+
+  animation-delay:3s;
+
+}
+
+
+/* ==========================================================
+   MOON
+========================================================== */
+
+@keyframes moonGlow{
+
+  0%{
+    transform:scale(1);
+    opacity:.85;
+  }
+
+  50%{
+    transform:scale(1.06);
+    opacity:1;
+  }
+
+  100%{
+    transform:scale(1);
+    opacity:.85;
+  }
+
+}
+
+.moon-glow{
+
+  animation:moonGlow 6s ease-in-out infinite;
+
+}
+
+
+/* ==========================================================
+   SUN
+========================================================== */
+
+@keyframes sunriseGlow{
+
+  0%{
+
+    opacity:.55;
+
+  }
+
+  50%{
+
+    opacity:1;
+
+  }
+
+  100%{
+
+    opacity:.55;
+
+  }
+
+}
+
+.sunrise-glow{
+
+  animation:sunriseGlow 5s ease-in-out infinite;
+
+}
+
+
+/* ==========================================================
+   CLOUD FLOAT
+========================================================== */
+
+@keyframes cloudSlow{
+
+  0%{
+
+    transform:translateX(0);
+
+  }
+
+  50%{
+
+    transform:translateX(12px);
+
+  }
+
+  100%{
+
+    transform:translateX(0);
+
+  }
+
+}
+
+.cloud-slow{
+
+  animation:cloudSlow 10s ease-in-out infinite;
+
+}
+
+
+/* ==========================================================
+   SHOOTING STAR
+========================================================== */
+
+@keyframes shootingStar{
+
+  0%{
+
+    opacity:0;
+    transform:
+      translate(-80px,-20px)
+      rotate(25deg);
+
+  }
+
+  15%{
+
+    opacity:1;
+
+  }
+
+  100%{
+
+    opacity:0;
+    transform:
+      translate(220px,130px)
+      rotate(25deg);
+
+  }
+
+}
+
+.shooting-star{
+
+  position:absolute;
+
+  top:12%;
+  left:10%;
+
+  width:90px;
+  height:2px;
+
+  border-radius:999px;
+
+  background:
+  linear-gradient(
+    90deg,
+    rgba(255,255,255,0),
+    rgba(255,255,255,.9)
+  );
+
+  animation:
+  shootingStar
+  12s linear infinite;
+
+}
+/* ==========================================================
+   WEATHER THEMES
+========================================================== */
+
+/* 🌧 Rain */
+
+.theme-rain{
+
+  background:
+  linear-gradient(
+    180deg,
+    #5B6D82 0%,
+    #7F93A8 45%,
+    #C7D4E2 100%
+  );
+
+}
+
+/* ⛈ Storm */
+
+.theme-storm{
+
+  background:
+  linear-gradient(
+    180deg,
+    #0B1220 0%,
+    #1E293B 45%,
+    #334155 100%
+  );
+
+}
+
+/* ❄ Snow */
+
+.theme-snow{
+
+  background:
+  linear-gradient(
+    180deg,
+    #E0F2FE 0%,
+    #F1F5F9 50%,
+    #FFFFFF 100%
+  );
+
+}
+
+/* 🌫 Fog */
+
+.theme-fog{
+
+  background:
+  linear-gradient(
+    180deg,
+    #CBD5E1 0%,
+    #E2E8F0 45%,
+    #F8FAFC 100%
+  );
+
+}
+/* ==========================================================
+   NIGHT TEXT
+========================================================== */
+
+.theme-night,
+.theme-storm{
+
+  color:#F8FAFC;
+
+}
+
+.theme-night p,
+.theme-night span,
+.theme-night h1,
+.theme-night h2,
+.theme-night h3,
+
+.theme-storm p,
+.theme-storm span,
+.theme-storm h1,
+.theme-storm h2,
+.theme-storm h3{
+
+  color:inherit;
+
+}
+
+.theme-night .text-slate-500,
+.theme-night .text-slate-600,
+.theme-night .text-slate-700,
+
+.theme-storm .text-slate-500,
+.theme-storm .text-slate-600,
+.theme-storm .text-slate-700{
+
+  color:#CBD5E1 !important;
+
+}
+/* ==========================================================
+   NIGHT GLASS
+========================================================== */
+
+.theme-night .glass-card,
+.theme-storm .glass-card{
+
+  background:rgba(18,28,60,.42);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.35);
+
+}
+/* ==========================================================
+   FORCE NIGHT TEXT
+========================================================== */
+
+.theme-night,
+.theme-storm{
+
+  color:#F8FAFC !important;
+
+}
+
+.theme-night *,
+
+.theme-storm *{
+
+  color:inherit;
+
+}
+
+.theme-night .text-slate-400,
+.theme-night .text-slate-500,
+.theme-night .text-slate-600,
+.theme-night .text-slate-700,
+.theme-night .text-slate-800,
+
+.theme-storm .text-slate-400,
+.theme-storm .text-slate-500,
+.theme-storm .text-slate-600,
+.theme-storm .text-slate-700,
+.theme-storm .text-slate-800{
+
+  color:#E2E8F0 !important;
+
+}
+/* ===========================================
+   Smooth Horizontal Scroll
+=========================================== */
+
+.scroll-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+}
+
+.scroll-x::-webkit-scrollbar {
+  display: none;
+}
+.scroll-x {
+  scroll-snap-type: x mandatory;
 }
