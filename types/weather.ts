@@ -11,7 +11,9 @@ export interface WeatherData {
   sunrise: number;
   sunset: number;
 
-  // Air Quality
+
+}
+export interface AirData {
   aqi: number;
   pm25: number;
   pm10: number;

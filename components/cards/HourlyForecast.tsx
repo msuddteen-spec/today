@@ -1,7 +1,7 @@
 "use client";
 
 import GlassCard from "@/components/ui/GlassCard";
-import WeatherIcon from "@/components/weather/WeatherIcon";
+import WeatherIcon from "@/components/Weather/WeatherIcon";
 import useForecast from "@/hooks/useForecast";
 
 interface Props {
